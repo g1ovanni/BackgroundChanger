@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // ! ///////////////////////////////////////
 // ! Breakdown
@@ -14,20 +14,16 @@
 
 */
 
-// const passwordLength = 0;
-// 0. Create event lister for 'Create' button
-// 1. Save number of characters for the variable
-
 const displayMessage = function (message) {
-  document.querySelector('.message').textContent = message;
+  document.querySelector(".message").textContent = message;
 };
 
-document.querySelector('.create').addEventListener('click', function () {
+document.querySelector(".create").addEventListener("click", function () {
   const passwordLength = Number(
-    document.querySelector('.passwordLength').value
+    document.querySelector(".passwordLength").value
   );
   const characters =
-    '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!$%&/()=?+^*,.;:-_';
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!$%&/()=?+^*,.;:-_";
   const charactersLength = characters.length;
   // Array definition ('password')
   const password = new Array(passwordLength);
@@ -40,21 +36,21 @@ document.querySelector('.create').addEventListener('click', function () {
     randomNum = Math.floor(Math.random() * charactersLength);
     password[i] = characters.charAt(randomNum);
   }
-  passFinal = password.join('');
+  passFinal = password.join("");
 
   // 1.1. When there is no input
   if (!passwordLength || passwordLength > 20 || passwordLength < 8) {
-    displayMessage('The password should have between 8 and 20 characters');
-    document.getElementById('password').style.width = '15rem';
-    document.querySelector('.password').textContent = '?';
-    document.getElementById('password').style.fontFamily = 'Press Start 2P';
+    displayMessage("The password should have between 8 and 20 characters");
+    document.getElementById("password").style.width = "15rem";
+    document.querySelector(".password").textContent = "?";
+    document.getElementById("password").style.fontFamily = "Press Start 2P";
   }
   //   Showing the new password
   else {
-    document.querySelector('.password').textContent = passFinal;
-    document.getElementById('password').style.width = '1500px';
-    document.getElementById('password').style.fontFamily = 'VT323';
-    document.querySelector('.message').textContent =
-      'There is your new password!';
+    document.querySelector(".password").textContent = passFinal;
+    document.getElementById("password").style.width = "1500px";
+    document.getElementById("password").style.fontFamily = "VT323";
+    document.querySelector(".message").textContent =
+      "There is your new password!";
   }
 });
